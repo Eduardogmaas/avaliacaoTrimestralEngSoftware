@@ -1,0 +1,16 @@
+@startuml
+title CasCão - Adapter - Diagrama de Sequência
+actor Usuario
+participant CasCao
+participant LocalizacaoService
+participant GoogleMapsAdapter
+participant GoogleMapsService
+Usuario -> CasCao : buscarDogWalkers()
+CasCao -> LocalizacaoService : calcularDistancia(origem,destino)
+LocalizacaoService -> GoogleMapsAdapter : calcularDistancia(...)
+GoogleMapsAdapter -> GoogleMapsService : getDistance(...)
+GoogleMapsService --> GoogleMapsAdapter : distancia
+GoogleMapsAdapter --> LocalizacaoService : distancia
+LocalizacaoService --> CasCao : distancia
+CasCao --> Usuario : DogWalkers ordenados
+@enduml

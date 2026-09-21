@@ -1,0 +1,14 @@
+@startuml
+title CasCão - Observer - Diagrama de Sequência
+actor Dono
+participant Contratacao
+participant DonoObserver
+participant DogWalkerObserver
+Dono -> Contratacao : confirmar()
+Contratacao -> Contratacao : alterar status
+Contratacao -> Contratacao : notificar()
+Contratacao -> DonoObserver : atualizar(contratacao)
+DonoObserver --> Dono : enviar notificação
+Contratacao -> DogWalkerObserver : atualizar(contratacao)
+DogWalkerObserver --> DogWalkerObserver : enviar notificação
+@enduml

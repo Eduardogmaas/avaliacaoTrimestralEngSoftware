@@ -1,0 +1,29 @@
+@startuml
+title CasCão - Builder - Diagrama de Classes
+class DogWalker {
+  - nome : String
+  - telefone : String
+  - tamanhoAtendido : String
+  - atividade : String
+  - precoPorHora : double
+  - disponivel : boolean
+  + DogWalker(...)
+  + getNome() : String
+}
+class DogWalkerBuilder {
+  - nome : String
+  - telefone : String
+  - tamanhoAtendido : String
+  - atividade : String
+  - precoPorHora : double
+  - disponivel : boolean
+  + setNome(nome : String) : DogWalkerBuilder
+  + setTelefone(telefone : String) : DogWalkerBuilder
+  + setTamanhoAtendido(tamanho : String) : DogWalkerBuilder
+  + setAtividade(atividade : String) : DogWalkerBuilder
+  + setPrecoPorHora(preco : double) : DogWalkerBuilder
+  + setDisponivel(disponivel : boolean) : DogWalkerBuilder
+  + build() : DogWalker
+}
+DogWalkerBuilder ..> DogWalker : cria
+@enduml

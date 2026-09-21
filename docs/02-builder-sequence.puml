@@ -1,0 +1,16 @@
+@startuml
+title CasCão - Builder - Diagrama de Sequência
+actor Administrador
+participant DogWalkerBuilder
+participant DogWalker
+Administrador -> DogWalkerBuilder : setNome("Carlos")
+Administrador -> DogWalkerBuilder : setTelefone(...)
+Administrador -> DogWalkerBuilder : setTamanhoAtendido("Grande")
+Administrador -> DogWalkerBuilder : setAtividade("Corrida")
+Administrador -> DogWalkerBuilder : setPrecoPorHora(40.0)
+Administrador -> DogWalkerBuilder : setDisponivel(true)
+Administrador -> DogWalkerBuilder : build()
+DogWalkerBuilder -> DogWalker : criar objeto
+DogWalker --> DogWalkerBuilder : novo DogWalker
+DogWalkerBuilder --> Administrador : DogWalker
+@enduml

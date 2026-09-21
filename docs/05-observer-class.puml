@@ -1,0 +1,30 @@
+@startuml
+title CasCão - Observer - Diagrama de Classes
+interface ContratacaoObserver {
+  + atualizar(contratacao : Contratacao)
+}
+class Contratacao {
+  - id : int
+  - status : String
+  - observadores : List<ContratacaoObserver>
+  + adicionarObservador(observer : ContratacaoObserver)
+  + removerObservador(observer : ContratacaoObserver)
+  + confirmar()
+  + cancelar()
+}
+class Dono
+class DogWalker
+class DonoObserver {
+  - dono : Dono
+  + atualizar(contratacao : Contratacao)
+}
+class DogWalkerObserver {
+  - dogWalker : DogWalker
+  + atualizar(contratacao : Contratacao)
+}
+DonoObserver ..|> ContratacaoObserver
+DogWalkerObserver ..|> ContratacaoObserver
+Contratacao "1" o-- "0..*" ContratacaoObserver
+DonoObserver --> Dono
+DogWalkerObserver --> DogWalker
+@enduml

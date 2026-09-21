@@ -1,0 +1,21 @@
+@startuml
+title CasCão - Adapter - Diagrama de Classes
+interface LocalizacaoService {
+  + calcularDistancia(origem : Coordenada, destino : Coordenada) : double
+}
+class GoogleMapsService {
+  + getDistance(origem : Coordenada, destino : Coordenada) : double
+}
+class GoogleMapsAdapter {
+  - googleMapsService : GoogleMapsService
+  + GoogleMapsAdapter(servico : GoogleMapsService)
+  + calcularDistancia(origem : Coordenada, destino : Coordenada) : double
+}
+class Coordenada {
+  + latitude : double
+  + longitude : double
+}
+GoogleMapsAdapter ..|> LocalizacaoService
+GoogleMapsAdapter *-- GoogleMapsService
+GoogleMapsService --> Coordenada
+@enduml
