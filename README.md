@@ -14,6 +14,8 @@ O CasCão é uma plataforma para intermediação entre tutores de cães e DogWal
 
 Requisito: Java 17+
 
+java -cp bin cascao.Main
+
 ## Estrutura
 
 - `src/main/java/.../builder`: Builder
